@@ -1,6 +1,4 @@
-//import scenes
-// import  startScreen  from "./startscreen.js";
-
+import LoadScene from "./scenes/LoadScene";
 
 const gameConfig = {
   width: 1200,
@@ -9,6 +7,6 @@ const gameConfig = {
   scale:{mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH},
   
-  scene : [startScreen]}
+  scene : [LoadScene]}
 export default gameConfig;
 

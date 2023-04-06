@@ -1,6 +1,6 @@
-export default class startScreen extends Phaser.Scene{
+export default class LoadScene extends Phaser.Scene{
 constructor(){
-    super({key:"startScreen"})
+    super({key:"LoadScene"})
 }
 preload(){
     this.load.audio("hit","assets/hit.wav");
