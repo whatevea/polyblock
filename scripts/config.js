@@ -1,12 +1,22 @@
-import LoadScene from "./scenes/LoadScene";
+import LoadScene from "./scenes/LoadScene.js";
+import MainMenu from "./scenes/MainMenu.js";
 
 const gameConfig = {
-  width: 1200,
-  height: 800,
   type: Phaser.AUTO,
-  scale:{mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH},
-  
-  scene : [LoadScene]}
+  width: 720,
+  height: 1280,
+  parent: 'game-container',
+  scale: {
+  mode: Phaser.Scale.FIT,
+  autoCenter: Phaser.Scale.CENTER_BOTH
+  },
+  physics: {
+  default: 'arcade',
+  arcade: {
+  debug: true
+  }
+  },
+scene:[LoadScene,MainMenu]
+}
 export default gameConfig;
 
