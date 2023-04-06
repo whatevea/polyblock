@@ -16,7 +16,7 @@ const gameConfig = {
   debug: true
   }
   },
-scene:[LoadScene,MainMenu]
+scene:[MainMenu]
 }
 export default gameConfig;
 

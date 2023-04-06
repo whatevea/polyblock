@@ -5,41 +5,22 @@ constructor(){
     super({key:"LoadScene"})
 }
 preload(){
-    this.load.audio("hit","assets/hit.wav");
-    this.load.audio("rise","assets/rise.wav");
 
-this.load.image("mountain","/assets/image.png");
-this.load.image("bg","/assets/bg.png")
-this.load.spritesheet("slots","/assets/125whack.png",{
-    frameWidth:125,
-    frameHeight:125
-})
+this.load.image("bg","../assets/bg.png")
+this.load.image("playBtn","../assets/playbtn.png")
+this.load.image("settings","../assets/setttings.png")
+
+
 
 }
 create(){
 
     //phaser animation simple code
-    this.anims.create({
 
-        key:"died",
-
-        frames:this.anims.generateFrameNumbers('slots',{frames:[1,2,4,5]}),
-
-        frameRate:11,
-
-        repeat:0
-
-
-
-    });
 
  //code here
-
-// let bg=this.add.image(16.371268400541396 ,-211.6354300385109,"bg").setOrigin(0,0).setScale(0.7)
-let mytext= this.add.text(197,340,"LOADING.....",{fontSize:"52px"})
-let mytext2= this.add.text(63,794,"Game by Sandiph (sandiph.itch.io)",{fontSize:"32px"})
-enableDrag(mytext)
-enableDrag(mytext2)
+ this.add.text(197,340,"LOADING.....",{fontSize:"52px"})
+ this.add.text(63,794,"Game by Sandiph (sandiph.itch.io)",{fontSize:"32px"})
 
 setTimeout(() => {
     this.cameras.main.fadeOut(1000);
