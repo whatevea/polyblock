@@ -7,11 +7,23 @@ constructor(){
 preload(){
 
     this.load.image("bg","../assets/bg.png")
+    this.load.image("bg2","../assets/bg2.png")
+
     this.load.image("playBtn","../assets/playbtn.png")
 this.load.spritesheet("onoff","../assets/onoff.png",{
     frameWidth:266,
     frameHeight:249
 })
+this.load.spritesheet("sprites","../assets/sprites.png",{
+    frameWidth:167,
+    frameHeight:169
+});
+this.load.spritesheet("spaceship","../assets/spaceship.png",{
+frameHeight:84,
+frameWidth:93
+})
+
+
 this.load.image("settings","../assets/settings.png")
 
 
@@ -21,6 +33,22 @@ this.load.image("settings","../assets/settings.png")
 create(){
 
     //phaser animation simple code
+this.anims.create({
+    key:"shake",
+    frames:this.anims.generateFrameNumbers("sprites",{frames:[4,1,2,3,5]}),
+frameRate:4,
+repeat:-1
+});
+
+
+this.anims.create({
+
+    key:"thrust",
+    frames:this.anims.generateFrameNumbers("spaceship",{frames:[1,2,3,4,5]}),
+    frameRate:10,
+    repeat:-1
+})
+
 
 
  //code here

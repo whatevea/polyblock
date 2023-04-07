@@ -18,8 +18,7 @@ let musicBtn=this.add.sprite(59,56,"onoff").setFrame(data.buttons.music.on).setS
 let soundBtn=this.add.sprite(656,65,"onoff").setFrame(data.buttons.sound.on).setScale(0.4)
 playBtn.setInteractive();
 playBtn.on("pointerdown",()=>{
-
-    this.scene.start("GamePlayScene","")
+    this.scene.start("GamePlayScene",{"Level":1})
 
 })
 
