@@ -6,9 +6,14 @@ constructor(){
 }
 preload(){
 
-this.load.image("bg","../assets/bg.png")
-this.load.image("playBtn","../assets/playbtn.png")
-this.load.image("settings","../assets/setttings.png")
+    this.load.image("bg","../assets/bg.png")
+    this.load.image("playBtn","../assets/playbtn.png")
+this.load.spritesheet("onoff","../assets/onoff.png",{
+    frameWidth:266,
+    frameHeight:249
+})
+this.load.image("settings","../assets/settings.png")
+
 
 
 
@@ -27,7 +32,7 @@ setTimeout(() => {
     this.cameras.main.once('camerafadeoutcomplete', () => {
         this.scene.start("MainMenu");
     });
-  }, 1200);
+  }, 0);
 
 
 }
