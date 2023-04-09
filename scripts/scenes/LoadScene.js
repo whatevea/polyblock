@@ -14,8 +14,8 @@ this.load.spritesheet("onoff","../assets/onoff.png",{
     frameWidth:266,
     frameHeight:249
 })
-this.load.spritesheet("sprites","../assets/sprites.png",{
-    frameWidth:167,
+this.load.spritesheet("allsprites","../assets/spritesaligned.png",{
+    frameWidth:165,
     frameHeight:169
 });
 this.load.spritesheet("spaceship","../assets/spaceship.png",{
