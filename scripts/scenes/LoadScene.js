@@ -2,10 +2,18 @@ import enableDrag from "../helpers/funcs.js";
 
 export default class LoadScene extends Phaser.Scene{
 constructor(){
-    super({key:"LoadScene"})
+    super(sceneConfig)
 }
 preload(){
 
+    this.plugins.get('rexwebfontloaderplugin').addToScene(this);
+
+        var config = {
+            google: {
+                families: ['Inconsolata']
+            }
+        };
+        this.load.rexWebFont(config);
     this.load.image("bg","../assets/bg.png")
     this.load.image("bg2","../assets/bg2.png")
 
@@ -16,7 +24,7 @@ this.load.spritesheet("onoff","../assets/onoff.png",{
 })
 this.load.spritesheet("allsprites","../assets/spritesaligned.png",{
     frameWidth:165,
-    frameHeight:169
+    frameHeight:168.5
 });
 this.load.spritesheet("spaceship","../assets/spaceship.png",{
 frameHeight:84,
@@ -33,12 +41,7 @@ this.load.image("settings","../assets/settings.png")
 create(){
 
     //phaser animation simple code
-this.anims.create({
-    key:"shake",
-    frames:this.anims.generateFrameNumbers("sprites",{frames:[4,1,2,3,5]}),
-frameRate:4,
-repeat:-1
-});
+
 
 
 this.anims.create({
@@ -55,12 +58,13 @@ this.anims.create({
  this.add.text(197,340,"LOADING.....",{fontSize:"52px"})
  this.add.text(63,794,"Game by Sandiph (sandiph.itch.io)",{fontSize:"32px"})
 
-setTimeout(() => {
-    this.cameras.main.fadeOut(1000);
-    this.cameras.main.once('camerafadeoutcomplete', () => {
-        this.scene.start("MainMenu");
-    });
-  }, 0);
+ this.scene.start("MainMenu");
+// setTimeout(() => {
+//     this.cameras.main.fadeOut(1000);
+//     this.cameras.main.once('camerafadeoutcomplete', () => {
+//         this.scene.start("MainMenu");
+//     });
+//   }, 0);
 
 
 }
@@ -69,3 +73,15 @@ update(){
 
 
 }
+var sceneConfig = {
+    key: 'LoadScene',
+    pack: {
+        files: [{
+            type: 'plugin',
+            key: 'rexwebfontloaderplugin',
+            url: 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexwebfontloaderplugin.min.js',
+            start: true
+        }]
+    }
+};
+

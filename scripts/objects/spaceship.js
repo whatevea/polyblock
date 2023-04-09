@@ -1,3 +1,5 @@
+import Bullet from "./bullet.js";
+
 export default class SpaceShip{
     constructor(scene){
         this.scene=scene;
@@ -6,9 +8,9 @@ export default class SpaceShip{
 
 
 
-fire(amount){
-
-console.log("fire")
+fire(){
+const {x,y}=this.sprite.getCenter();
+new Bullet(this.scene,x,y).move();
 
 
 }
