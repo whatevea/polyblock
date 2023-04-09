@@ -3,7 +3,7 @@ import Bullet from "./bullet.js";
 export default class SpaceShip{
     constructor(scene){
         this.scene=scene;
-        this.sprite=scene.add.sprite(68,1123,"spaceship").setScale(2)
+        this.sprite=scene.add.sprite(68,1123,"spaceship").setScale(2);
     };
 
 

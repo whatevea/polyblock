@@ -14,6 +14,7 @@ this.LevelNumber=data.Level;
 }
 
 create(){
+this.emitter= new Phaser.Events.EventEmitter();
 const backgroundImage=this.add.image(0,0,"bg2").setOrigin(0,0);
 const spaceship= new SpaceShip(this);
 spaceship.move()
@@ -24,13 +25,25 @@ fireBtn.setInteractive();
 fireBtn.on("pointerdown",()=>{
     spaceship.fire();
 })
-
-const bullet1= new Bullet(this,400,400).move();
+this.bulletGroup=this.add.group();
+this.boxGroup = this.add.group();
+this.physics.add.overlap(this.bulletGroup,this.boxGroup,(a,b)=>{
+   this.emitter.emit("bulletAndBox",a,b)
+})
 initLevel(this,this.LevelNumber);
 this.fontConfig={fontFamily:"Inconsolata",fontSize:"47px"}
 
 }
 update(){
+this.bulletGroup.getChildren().forEach((child)=>{
+    if(child.y<=-10){
+        
+        child.destroy()
+        console.log("child destroyed")
+    }
+})
+
+
 
 }
 
