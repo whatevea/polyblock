@@ -13,7 +13,8 @@ init(data){
 this.LevelNumber=data.Level;
 }
 
-create(){
+create()
+{
 this.emitter= new Phaser.Events.EventEmitter();
 const backgroundImage=this.add.image(0,0,"bg2").setOrigin(0,0);
 const spaceship= new SpaceShip(this);

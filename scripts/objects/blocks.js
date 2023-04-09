@@ -1,6 +1,8 @@
 export default class Blocks{
 
-    constructor(scene,x,y,num){
+    constructor(scene,x,y,num)
+    
+    {
         this.scene=scene;
         this.x=x;
         this.y=y;
@@ -9,6 +11,8 @@ export default class Blocks{
         this.sprite.body.setSize(this.sprite.width-30,this.sprite.height-35)
         this.numSprite=scene.add.text(x+20,y+20,num,{fontFamily:"Inconsolata",fontSize:"47px"})
         this.setEventListener();
+        this.playingAnim1=false;
+        this.playingAnim2= false;
 
     }
     setEventListener(){
@@ -33,8 +37,15 @@ export default class Blocks{
 }
 
 
-    shake(){ 
-        if()
+    shake()
+    {
+    if(!this. playingAnim1 && !this.playingAnim2)
+    {
+        this.playingAnim2 = true;    
+
+            this.playingAnim1 = true;
+
+        this.playingAnim=true;
         let boxShake=this.scene.tweens.add({
             targets:this.sprite,
             x:this.x+5,
@@ -43,6 +54,9 @@ export default class Blocks{
             ease:"Linear",
             yoyo:true,
             repeat:1,
+            onComplete: ()=>{
+                this.playingAnim1=false;
+            }  
         })
     let numShake=this.scene.tweens.add({
         targets:this.numSprite,
@@ -51,10 +65,13 @@ export default class Blocks{
         duration:50,
         ease:"Linear",
         yoyo:true,
-        repeat:1
+        repeat:1,
+        onComplete:()=>{
+            this.playingAnim2=false;
+        }
     })
 
-    }
+    }}
 
     blast(){
         this.numSprite.destroy();
