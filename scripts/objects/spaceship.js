@@ -8,10 +8,20 @@ export default class SpaceShip{
 
 
 
-fire(){
-const {x,y}=this.sprite.getCenter();
-new Bullet(this.scene,x,y).move();
+startFire(){
+this.fireTimer= this.scene.time.addEvent({
+    delay:600,
+    callback:()=>{
+        const { x, y } = this.sprite.getCenter();
+        new Bullet(this.scene, x, y).move();
 
+    },
+    loop:true
+})
+
+}
+stopFire(){
+this.fireTimer.remove();
 
 }
 move(){

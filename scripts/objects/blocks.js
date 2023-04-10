@@ -17,23 +17,23 @@ export default class Blocks{
     }
     setEventListener(){
         this.scene.emitter.on("bulletAndBox",(bullet,box)=>{
-            if(this.num>1 && box===this.sprite){
-                this.reduce();
+            if(this.sprite===box){
+                this.reduce()
             }
-            
-            if(box===this.sprite && this.num===1){
-                this.blast();
-                this.scene.boxGroup.remove(this.sprite);
-            }
-        })
+        }
+        )
     }
 
     reduce()
     {
+    if(this.num===1){
+        this.blast()
+    }
+    else {
     this.shake();
     this.num--;
     this.numSprite.text=this.num;
-   
+    }  
 }
 
 
@@ -76,7 +76,7 @@ export default class Blocks{
     blast(){
         this.numSprite.destroy();
         this.sprite.destroy();
-
+        this.scene.particlesEmitter.renderBoxParticles(this.x,this.y)
     }
 
 }

@@ -2,6 +2,7 @@ import initLevel from "../handlers/LevelHandler.js";
 import data from "../helpers/data.js";
 import enableDrag from "../helpers/funcs.js";
 import Bullet from "../objects/bullet.js";
+import Particle from "../objects/particles.js";
 import SpaceShip from "../objects/spaceship.js";
 
 export default class GamePlayScene extends Phaser.Scene{
@@ -15,6 +16,7 @@ this.LevelNumber=data.Level;
 
 create()
 {
+
 this.emitter= new Phaser.Events.EventEmitter();
 const backgroundImage=this.add.image(0,0,"bg2").setOrigin(0,0);
 const spaceship= new SpaceShip(this);
@@ -23,8 +25,15 @@ spaceship.move()
 const fireBtn=this.add.sprite(100,400,"allsprites").setFrame(9)
 
 fireBtn.setInteractive();
-fireBtn.on("pointerdown",()=>{
-    spaceship.fire();
+
+fireBtn.on("pointerdown", ()=>{
+    fireBtn.setFrame(10);
+    spaceship.startFire();
+    console.log("pressed")
+});
+fireBtn.on("pointerup",()=>{
+    spaceship.stopFire();
+    fireBtn.setFrame(9)
 })
 this.bulletGroup=this.add.group();
 this.boxGroup = this.add.group();
@@ -33,6 +42,7 @@ this.physics.add.overlap(this.bulletGroup,this.boxGroup,(a,b)=>{
 })
 initLevel(this,this.LevelNumber);
 this.fontConfig={fontFamily:"Inconsolata",fontSize:"47px"}
+    this.particlesEmitter = new Particle(this);
 
 }
 update(){

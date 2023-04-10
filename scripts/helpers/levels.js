@@ -2,8 +2,8 @@ const levelData=
 {
     1: {
         waves:1,
-        minBlock:10,
-        maxBlock:30,
+        minBlock:1,
+        maxBlock:2,
         blocksPerWave:10,
     },
     2: {

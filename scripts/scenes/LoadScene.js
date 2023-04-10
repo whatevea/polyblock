@@ -5,7 +5,6 @@ constructor(){
     super(sceneConfig)
 }
 preload(){
-
     this.plugins.get('rexwebfontloaderplugin').addToScene(this);
 
         var config = {
@@ -16,7 +15,7 @@ preload(){
         this.load.rexWebFont(config);
     this.load.image("bg","../assets/bg.png")
     this.load.image("bg2","../assets/bg2.png")
-
+this.load.image("boxParticle","../assets/particle.png")
     this.load.image("playBtn","../assets/playbtn.png")
 this.load.spritesheet("onoff","../assets/onoff.png",{
     frameWidth:266,
