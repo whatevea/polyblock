@@ -8,9 +8,9 @@ export default class Particle {
            const emitter=this.boxParticles.createEmitter({
             x:x,
             y:y,
-            lifespan:200,
+            lifespan:320,
             maxParticles:4,
-            gravityY:1000,
+            gravityY:300,
             scale:{start:0.2,end:0},
             speed:{min:300,max:600}
         })

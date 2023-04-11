@@ -3,7 +3,8 @@ import Bullet from "./bullet.js";
 export default class SpaceShip{
     constructor(scene){
         this.scene=scene;
-        this.sprite=scene.add.sprite(68,1123,"spaceship").setScale(2);
+        this.blueparticles=scene.add.particles("blueParticle");
+        this.sprite=scene.add.sprite(68,1029,"spaceship").setScale(2);
     };
 
 
@@ -40,6 +41,20 @@ thrust(){
 
 this.sprite.play("thrust")
 
+}
+
+emitParticle(){
+    this.blueParticleEmitter=this.blueparticles.createEmitter({
+        moveToX: 85,
+        moveToY: 1110,
+        frequency:240,
+        blendMode: 'ADD',
+        scale: { start: 0.4, end: 0 },
+        speedX: { start: 100, end: 400, steps: 12 },
+        speedY: { min: -20, max: 20 },
+        angle: { min: 10, max: 180 },
+        follow:this.sprite
+    })
 }
 
 

@@ -14,7 +14,7 @@ const gameConfig = {
   physics: {
   default: 'arcade',
   arcade: {
-  debug: true
+  debug: false
   }
   },
 scene:[LoadScene,MainMenu,GamePlayScene,LevelSelectScene]

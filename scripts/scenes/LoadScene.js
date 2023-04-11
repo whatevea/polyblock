@@ -16,7 +16,12 @@ preload(){
     this.load.image("bg","../assets/bg.png")
     this.load.image("bg2","../assets/bg2.png")
 this.load.image("boxParticle","../assets/particle.png")
+this.load.image("blueParticle","../assets/blueparticle.png")
     this.load.image("playBtn","../assets/playbtn.png")
+    this.load.spritesheet("battery","../assets/battery.png",{
+        frameHeight:308,
+        frameWidth:165
+    })
 this.load.spritesheet("onoff","../assets/onoff.png",{
     frameWidth:266,
     frameHeight:249
